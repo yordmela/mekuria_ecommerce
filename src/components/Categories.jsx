@@ -61,10 +61,10 @@ const Categories = () => {
     const itemsPerSlide = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 4;
     const maxSlides = Math.ceil(totalItems / itemsPerSlide) - 1;
 
-    if (direction === 'next' && slidePosition < maxSlides) {
-      setSlidePosition(slidePosition + 1);
-    } else if (direction === 'prev' && slidePosition > 0) {
-      setSlidePosition(slidePosition - 1);
+    if (direction === 'next') {
+      setSlidePosition((prev) => (prev + 1) % maxSlides);
+    } else {
+      setSlidePosition((prev) => (prev - 1 + maxSlides) % maxSlides);
     }
   };
 
@@ -167,7 +167,7 @@ const Categories = () => {
 
         {/* Dots for Navigation */}
         <div className="flex justify-center space-x-2">
-          {Array.from({ length: maxSlides + 1 }).map((_, index) => (
+          {Array.from({ length: maxSlides }).map((_, index) => (
             <button
               key={index}
               onClick={() => setSlidePosition(index)}

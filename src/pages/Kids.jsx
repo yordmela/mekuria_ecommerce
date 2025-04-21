@@ -1,19 +1,15 @@
 import Navbar from "../components/Navbar";
-import Banner from "../components/Banner";
-import Categories from "../components/Categories";
 import Recommended from "../components/Recommended";
 import Footer from "../components/Footer";
 
-const Home = () => {
+const Kids = () => {
   return (
     <div className="body bg-gray-100 font-poppins">
       <Navbar />
-      <Banner />
-      <Categories />
-      <Recommended />
+      <Recommended title="Kids"/>
       <Footer />
     </div>
   );
 };
 
-export default Home;
+export default Kids;
